@@ -372,6 +372,8 @@ export function createStore(persistKey?: string): Store {
       if (!raw) return;
       const parsed = JSON.parse(raw) as Partial<AppState>;
       if (parsed && parsed.version === SEED.version) state = { ...SEED, ...parsed } as AppState;
+      // Saved demo data from before the profile email changed: adopt the new default address.
+      if (state.profile.email === "hello@codext.studio") state = { ...state, profile: { ...state.profile, email: SEED.profile.email } };
     } catch {
       /* corrupted or blocked storage: keep seed */
     }

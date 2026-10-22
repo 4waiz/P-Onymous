@@ -128,7 +128,7 @@ export const SEED: AppState = {
   ],
   profile: {
     name: "Awaiz Ahmed",
-    email: "hello@codext.studio",
+    email: "awaiz@kanbanstudios.ae",
     phone: "+880 1711 204 551",
     country: "Bangladesh",
     twoFactor: true,
