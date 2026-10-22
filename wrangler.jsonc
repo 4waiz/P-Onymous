@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "71codes-dashboard",
+  "account_id": "f8dc06dc6cc06ecfe499b2fdbcf45196",
+  "compatibility_date": "2026-10-01",
+  // Static export from `next build` (output: "export") served as Workers static assets.
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "71code.kanbanstudios.ae", "custom_domain": true }]
+}
