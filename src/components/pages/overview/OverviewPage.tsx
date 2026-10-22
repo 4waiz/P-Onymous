@@ -33,6 +33,7 @@ import { convert, useAppState, useDispatch } from "@/lib/store";
 import type { DisplayCurrency, TxStatus } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
 import { TxTable } from "../shared/TxTable";
+import { OverviewWorldPanel } from "./OverviewWorldPanel";
 
 export function OverviewPage() {
   const { profile } = useAppState();
@@ -43,6 +44,7 @@ export function OverviewPage() {
         subtitle="Stay on top of your tasks, monitor progress, and track status."
         subtitleAt={0.62}
       />
+      <OverviewWorldPanel />
       <div className="grid grid-cols-1 gap-[24px] md:grid-cols-2 xl:grid-cols-3">
         <BalanceCard />
         <MetricsCard />

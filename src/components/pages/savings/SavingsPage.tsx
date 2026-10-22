@@ -33,6 +33,7 @@ import { money, monthYear, nowStamp, pct } from "@/lib/format";
 import { useAppState, useDispatch } from "@/lib/store";
 import type { AppState, Goal, GoalIcon, GoalTone } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { SavingsWorldPanel } from "./SavingsWorldPanel";
 
 export const GOAL_ICONS: Record<GoalIcon, LucideIcon> = {
   laptop: Laptop,
@@ -70,6 +71,7 @@ export function SavingsPage() {
           </Button>
         }
       />
+      <SavingsWorldPanel onAddMoney={setAddFor} />
       <div className="mb-[24px] grid grid-cols-1 gap-[24px] lg:grid-cols-[3fr_2fr]">
         <TotalSavedPanel />
         <AutoSavePanel />

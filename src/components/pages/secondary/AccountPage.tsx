@@ -16,12 +16,14 @@ import { useAppState, useDispatch } from "@/lib/store";
 import { setTheme, useTheme } from "@/lib/theme";
 import type { Profile } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { AccountWorldPanel } from "./SecondaryWorlds";
 
 export function AccountPage() {
   const state = useAppState();
   return (
     <div>
       <PageHeader title="Account" subtitle="Your profile, security and preferences — all in one calm place." />
+      <AccountWorldPanel />
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[1.25fr_1fr]">
         <ProfileForm key={JSON.stringify(state.profile)} profile={state.profile} />
         <div className="flex flex-col gap-[24px]">

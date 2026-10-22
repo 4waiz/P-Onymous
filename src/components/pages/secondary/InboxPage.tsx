@@ -12,6 +12,7 @@ import { cx } from "@/lib/cx";
 import { dateTime, timeOfDay, dayMonth } from "@/lib/format";
 import { useAppState, useDispatch } from "@/lib/store";
 import { PageHeader } from "../PageHeader";
+import { InboxWorldPanel } from "./SecondaryWorlds";
 
 type Box = "all" | "unread" | "starred";
 
@@ -37,6 +38,13 @@ export function InboxPage() {
   return (
     <div>
       <PageHeader title="Inbox" subtitle="Messages, requests and receipts from the people you pay." />
+      <InboxWorldPanel
+        onOpen={(id) => {
+          setOpenId(id);
+          setDraft("");
+          if (messages.find((m) => m.id === id && !m.read)) dispatch({ type: "readMessage", id });
+        }}
+      />
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[380px_1fr]">
         <Panel at={0.1} contentAt={0.22} className="p-[16px]">
           <Reveal className="flex h-[36px] items-center gap-1 rounded-full bg-well p-[3px]" role="tablist" aria-label="Mailbox">

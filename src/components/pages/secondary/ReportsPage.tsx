@@ -14,6 +14,7 @@ import { MONTH_NAMES, money } from "@/lib/format";
 import { useAppState } from "@/lib/store";
 import type { Transaction, TxIcon } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { ReportsWorldPanel } from "./SecondaryWorlds";
 import { downloadCsv, toCsv } from "../shared/TxTable";
 
 const CATEGORY: Partial<Record<TxIcon, string>> = {
@@ -91,6 +92,7 @@ export function ReportsPage() {
         }
       />
 
+      <ReportsWorldPanel period={period} />
       <div className="mb-[24px] grid grid-cols-1 gap-[24px] sm:grid-cols-3">
         {[
           { label: "Income", value: income, delta: 9 },

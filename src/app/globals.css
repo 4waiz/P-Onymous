@@ -209,3 +209,64 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/*  Live 3D worlds                                                     */
+/* ------------------------------------------------------------------ */
+.world-backdrop {
+  background:
+    radial-gradient(120% 95% at 50% 38%, #fcfbf9 0%, #f3f0f1 55%, #e9e5e9 100%);
+}
+[data-theme="dark"] .world-backdrop {
+  background: radial-gradient(120% 95% at 50% 38%, #26222b 0%, #1a171e 60%, #131116 100%);
+}
+.world-frame:fullscreen {
+  border-radius: 0;
+  background: var(--canvas);
+}
+.world-card {
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 14px 34px -16px rgba(28, 22, 36, 0.32), 0 2px 6px -3px rgba(28, 22, 36, 0.08);
+}
+.world-card:hover,
+.world-card-active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px rgba(234, 85, 47, 0.55), 0 18px 38px -16px rgba(28, 22, 36, 0.36);
+}
+[data-theme="dark"] .world-card {
+  background: rgba(32, 29, 37, 0.82);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+.world-chip {
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px -10px rgba(28, 22, 36, 0.35);
+}
+[data-theme="dark"] .world-chip {
+  background: rgba(32, 29, 37, 0.8);
+}
+.world-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: world-halo 1.9s ease-out infinite;
+}
+@keyframes world-halo {
+  0% {
+    transform: scale(0.45);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .world-halo {
+    animation: none;
+    opacity: 0.2;
+  }
+}

@@ -13,6 +13,7 @@ import { Toggle } from "@/components/ui/Toggle";
 import { int, money } from "@/lib/format";
 import { useAppState, useDispatch } from "@/lib/store";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { ProgramWorldPanel } from "./SecondaryWorlds";
 
 const TIERS = [
   { name: "Silver", at: 0 },
@@ -55,6 +56,7 @@ export function ProgramPage() {
           </Button>
         }
       />
+      <ProgramWorldPanel perks={PERKS} onRedeem={(id) => setConfirm(PERKS.find((p) => p.id === id) ?? null)} />
       <div className="mb-[24px] grid grid-cols-1 gap-[24px] lg:grid-cols-3">
         <Panel at={0.1} contentAt={0.25} className="relative overflow-hidden p-[22px] lg:col-span-2">
           <div aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(234,85,47,0.16),transparent_65%)]" />

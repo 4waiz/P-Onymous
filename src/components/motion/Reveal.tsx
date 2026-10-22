@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 type RevealProps = Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transition"> & {
   /** Reference-seconds delay relative to the enclosing group. */
   at?: number;
+  x?: number;
   y?: number;
   blur?: number;
   scale?: number;
@@ -15,13 +16,13 @@ type RevealProps = Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transit
 };
 
 /** Fade + slight lift + blur-to-sharp. The workhorse of the staged reveal. */
-export function Reveal({ at = 0, y = 10, blur = 6, scale = 1, duration = 0.42, children, ...rest }: RevealProps) {
+export function Reveal({ at = 0, x = 0, y = 10, blur = 6, scale = 1, duration = 0.42, children, ...rest }: RevealProps) {
   const { delay, dur, still, reduced } = useTiming();
   const d = delay(at);
   return (
     <motion.div
-      initial={still ? false : { opacity: 0, y: reduced ? 0 : y, scale: reduced ? 1 : scale, filter: `blur(${blur}px)` }}
-      animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
+      initial={still ? false : { opacity: 0, x: reduced ? 0 : x, y: reduced ? 0 : y, scale: reduced ? 1 : scale, filter: `blur(${blur}px)` }}
+      animate={{ opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
       transition={{
         default: { type: "spring", stiffness: 300, damping: 30, mass: 0.9, delay: d },
         opacity: { duration: dur(duration * 0.8), delay: d, ease: "easeOut" },

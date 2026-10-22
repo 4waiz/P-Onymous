@@ -12,6 +12,7 @@ import { cx } from "@/lib/cx";
 import { MONTH_NAMES, dayMonth, money, nowStamp } from "@/lib/format";
 import { useAppState, useDispatch } from "@/lib/store";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { ScheduleWorldPanel } from "./SecondaryWorlds";
 
 const WEEKDAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
@@ -63,6 +64,7 @@ export function SchedulePage() {
           </Button>
         }
       />
+      <ScheduleWorldPanel />
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[1fr_1.2fr]">
         <Panel at={0.1} contentAt={0.25} className="p-[22px]">
           <Reveal className="flex items-center justify-between">

@@ -16,8 +16,9 @@ const condensed = Barlow_Condensed({
 const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap", preload: false });
 
 export const metadata: Metadata = {
-  title: { default: "71Codes — Overview", template: "%s · 71Codes" },
-  description: "71Codes Dashboard V14 — a demo finance workspace with balances, contacts, savings goals and card controls.",
+  title: { default: "71Codes — Live 3D business dashboards", template: "%s · 71Codes" },
+  description:
+    "71Codes turns your business data into a live, animated 3D world — orders, money, customers and goals you can orbit, click and watch move.",
 };
 
 export const viewport: Viewport = {

@@ -212,10 +212,10 @@ function HeaderActions({ onSearch }: { onSearch: () => void }) {
         </IconButton>
         <Popover open={open === "info"} onClose={() => setOpen(null)} anchor={infoRef} label="About this demo" width={320}>
           <div className="p-5">
-            <p className="text-[15px] font-semibold">71Codes · Dashboard V14</p>
+            <p className="text-[15px] font-semibold">71Codes · Live 3D dashboards</p>
             <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted">
-              A demo finance workspace. Balances, transfers and cards are simulated and stored only in this browser —
-              no real money moves.
+              No boring charts: 71Codes turns business data into a living 3D world you can orbit and click. Every
+              page here is a live demo — balances, transfers and cards are simulated and stored only in this browser.
             </p>
             <div className="mt-4 grid gap-2">
               <Link

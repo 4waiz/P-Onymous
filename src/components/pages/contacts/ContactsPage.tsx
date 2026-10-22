@@ -15,11 +15,13 @@ import { dayMonth, money } from "@/lib/format";
 import { useAppState, useDispatch } from "@/lib/store";
 import type { Contact } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { ContactsWorldPanel } from "./ContactsWorldPanel";
 
 const PRESETS = [50, 100, 250, 500];
 
 export function ContactsPage() {
   const [addOpen, setAddOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   return (
     <div>
       <PageHeader
@@ -33,7 +35,12 @@ export function ContactsPage() {
           </Button>
         }
       />
-      <QuickTransfer onAddNew={() => setAddOpen(true)} />
+      <ContactsWorldPanel
+        onPick={(contactId) => {
+          setSelectedId(contactId);
+        }}
+      />
+      <QuickTransfer onAddNew={() => setAddOpen(true)} selectedId={selectedId} onSelect={setSelectedId} />
       <ContactDirectory />
       <AddContactDialog open={addOpen} onClose={() => setAddOpen(false)} />
     </div>
@@ -44,11 +51,18 @@ export function ContactsPage() {
 /*  Quick transfer                                                     */
 /* ------------------------------------------------------------------ */
 
-function QuickTransfer({ onAddNew }: { onAddNew: () => void }) {
+function QuickTransfer({
+  onAddNew,
+  selectedId,
+  onSelect: setSelectedId,
+}: {
+  onAddNew: () => void;
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+}) {
   const { contacts, balanceUSD } = useAppState();
   const favourites = contacts.filter((c) => c.favourite).slice(0, 6);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const selected = favourites.find((c) => c.id === selectedId) ?? favourites[0] ?? null;
+  const selected = contacts.find((c) => c.id === selectedId) ?? favourites[0] ?? null;
   const [raw, setRaw] = useState("100");
   const [touched, setTouched] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);

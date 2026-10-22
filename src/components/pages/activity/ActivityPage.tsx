@@ -15,6 +15,7 @@ import { dateTime, int, money } from "@/lib/format";
 import { useAppState } from "@/lib/store";
 import type { Transaction, TxStatus } from "@/lib/types";
 import { CardTitle, PageHeader } from "../PageHeader";
+import { ActivityWorldPanel } from "./ActivityWorldPanel";
 import { TxGlyph } from "../shared/TxGlyph";
 import { downloadCsv, toCsv, TxTable, type SortKey } from "../shared/TxTable";
 
@@ -90,6 +91,7 @@ export function ActivityPage() {
         }
       />
 
+      <ActivityWorldPanel />
       <div className="mb-[24px] grid grid-cols-1 gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
         <StatCard at={0.08} label="Transactions" icon={<ReceiptText size={14} strokeWidth={1.8} />} tone="neutral" value={transactions.length} format={count} foot={<><Delta value={12} /><span>vs March</span></>} />
         <StatCard at={0.12} label="Money in" icon={<ArrowDown size={14} strokeWidth={1.9} />} tone="pos" value={stats.inflow} format={whole} foot={<><Delta value={8} /><span>This month</span></>} />
