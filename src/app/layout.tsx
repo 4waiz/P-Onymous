@@ -10,8 +10,10 @@ const condensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
+  // Only the /showcase stage uses the condensed + mono faces; don't preload them everywhere.
+  preload: false,
 });
-const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap" });
+const mono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], display: "swap", preload: false });
 
 export const metadata: Metadata = {
   title: { default: "71Codes — Overview", template: "%s · 71Codes" },

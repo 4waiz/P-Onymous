@@ -133,7 +133,7 @@ function TransferBody({
           exit={{ opacity: 0, x: -12 }}
           transition={{ duration: 0.18 }}
         >
-          <div className="flex flex-col items-center rounded-[20px] bg-inset px-5 py-6 text-center">
+          <div className="flex flex-col items-center rounded-[20px] bg-well px-5 py-6 text-center">
             <InitialsAvatar initials={contact.initials} gradient={contact.gradient} size={56} />
             <p className="mt-3 text-[13px] text-muted">You’re sending</p>
             <p className="num text-[34px] font-semibold tracking-[-0.02em]">{money(value)}</p>

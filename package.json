@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "wrangler dev",
     "lint": "eslint",
-    "preview": "next build && wrangler dev",
-    "deploy": "next build && wrangler deploy",
-    "typecheck": "tsc --noEmit"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "postbuild": "node scripts/alias-segment-payloads.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

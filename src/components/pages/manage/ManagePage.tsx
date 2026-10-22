@@ -83,7 +83,7 @@ function YourCards({ onNew }: { onNew: () => void }) {
         </span>
       </Reveal>
 
-      <Reveal at={0.0} y={8} blur={2} className="mt-[21px] flex flex-col items-center rounded-[20px] bg-inset px-4 pb-[10px] pt-[25px]">
+      <Reveal at={0.0} y={8} blur={2} className="mt-[21px] flex flex-col items-center rounded-[20px] bg-well px-4 pb-[10px] pt-[25px]">
         <motion.div
           className="w-full max-w-[411px]"
           initial={still ? false : { opacity: 0.35, filter: "blur(12px) grayscale(0.6)", scale: 0.97 }}
@@ -122,7 +122,7 @@ function YourCards({ onNew }: { onNew: () => void }) {
               }}
               className={cx(
                 "relative flex h-[36px] items-center gap-[8px] rounded-full pl-[8px] pr-[13px] text-[11.5px] text-ink-2 transition-colors",
-                active ? "bg-card" : "hover:bg-inset",
+                active ? "bg-card" : "hover:bg-well",
               )}
             >
               {active && (
@@ -183,7 +183,7 @@ function ActionTile({ label, icon, onClick, at, active }: { label: string; icon:
         aria-pressed={active}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.97 }}
-        className={cx("flex h-[92px] w-full flex-col items-center justify-center gap-[10px] rounded-[16px] text-[11.5px] text-ink-2 transition-colors", active ? "bg-inset-strong text-ink" : "bg-inset hover:bg-inset-strong")}
+        className={cx("flex h-[92px] w-full flex-col items-center justify-center gap-[10px] rounded-[16px] text-[11.5px] text-ink-2 transition-colors", active ? "bg-well-strong text-ink" : "bg-well hover:bg-well-strong")}
       >
         <span className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-full bg-card text-ink shadow-card">
           <AnimatePresence mode="wait" initial={false}>
@@ -233,7 +233,7 @@ function CardControlsPanel() {
         {CONTROLS.map((row, i) => (
           <li key={row.key} className={cx(i > 0 && "border-t border-line")}>
             <Reveal at={0.05 + i * 0.08} y={8} className={cx("flex items-center gap-[14px] py-[12.5px] transition-opacity", card.frozen && "opacity-55")}>
-              <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-inset text-ink-2">{row.icon}</span>
+              <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-well text-ink-2">{row.icon}</span>
               <div className="min-w-0 flex-1">
                 <p className="text-[13.5px] font-semibold tracking-[-0.01em] text-ink">{row.title}</p>
                 <p className="mt-[3px] truncate text-[11.5px] text-muted">{row.body}</p>
@@ -269,14 +269,14 @@ function SpendingLimit({ card }: { card: PaymentCard }) {
   const transition = { delay: entered ? 0 : delay(0.36), duration: entered ? 0.12 : dur(0.5), ease: EASE_OUT };
 
   return (
-    <Reveal at={0.33} y={10} className="mt-[20px] rounded-[18px] bg-inset px-[18px] pb-[20px] pt-[15px]">
+    <Reveal at={0.33} y={10} className="mt-[20px] rounded-[18px] bg-well px-[18px] pb-[20px] pt-[15px]">
       <div className="flex items-center justify-between">
         <p className="text-[13.5px] text-ink-2">Monthly spending limit</p>
         <span className="num text-[26px] font-[650] tracking-[-0.025em] text-ink">{format(card.limit)}</span>
       </div>
 
       <div className="relative mt-[4px] h-[22px]">
-        <div className="absolute inset-x-0 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-inset-strong" />
+        <div className="absolute inset-x-0 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-well-strong" />
         <motion.div
           className="absolute left-0 top-1/2 h-[6px] -translate-y-1/2 rounded-full bg-accent"
           initial={still ? false : { width: "0%" }}
@@ -359,7 +359,7 @@ function NewCardForm({ onClose }: { onClose: () => void }) {
               ["lilac", "#8574EA", "Lilac"],
             ] as [CardColor, string, string][]
           ).map(([key, swatch, name]) => (
-            <label key={key} className={cx("flex cursor-pointer items-center gap-2 rounded-[12px] px-3 py-2 text-[13px] ring-1 ring-inset transition-colors", color === key ? "bg-inset ring-ink" : "ring-line hover:bg-inset")}>
+            <label key={key} className={cx("flex cursor-pointer items-center gap-2 rounded-[12px] px-3 py-2 text-[13px] ring-1 ring-inset transition-colors", color === key ? "bg-well ring-ink" : "ring-line hover:bg-well")}>
               <input type="radio" name="card-color" value={key} checked={color === key} onChange={() => setColor(key)} className="sr-only" />
               <span className="h-4 w-6 rounded-[4px]" style={{ background: swatch }} />
               {name}

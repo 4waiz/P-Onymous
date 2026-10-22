@@ -84,7 +84,7 @@ function QuickTransfer({ onAddNew }: { onAddNew: () => void }) {
                   {active && (
                     <motion.span
                       layoutId="qt-selected-bg"
-                      className="absolute inset-0 rounded-[16px] bg-inset"
+                      className="absolute inset-0 rounded-[16px] bg-well"
                       transition={{ type: "spring", stiffness: 420, damping: 34 }}
                     />
                   )}
@@ -122,7 +122,7 @@ function QuickTransfer({ onAddNew }: { onAddNew: () => void }) {
       </div>
 
       {/* Composer */}
-      <Reveal at={0.1} y={10} className="w-full shrink-0 rounded-[20px] bg-inset px-[16px] pb-[17px] pt-[18px] lg:-mt-[3px] lg:w-[476px]">
+      <Reveal at={0.1} y={10} className="w-full shrink-0 rounded-[20px] bg-well px-[16px] pb-[17px] pt-[18px] lg:-mt-[3px] lg:w-[476px]">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -286,7 +286,7 @@ function ContactDirectory() {
                   <motion.span layoutId="contacts-filter" className="absolute inset-0 rounded-full bg-pill" transition={{ type: "spring", stiffness: 460, damping: 36 }} />
                 )}
                 <span className="relative">{label}</span>
-                <span className={cx("relative inline-flex h-[16px] min-w-[18px] items-center justify-center rounded-[5px] px-1 text-[9.5px] font-medium", active ? "bg-white/15 text-pill-fg" : "bg-inset text-muted")}>
+                <span className={cx("relative inline-flex h-[16px] min-w-[18px] items-center justify-center rounded-[5px] px-1 text-[9.5px] font-medium", active ? "bg-white/15 text-pill-fg" : "bg-well text-muted")}>
                   {counts[key]}
                 </span>
               </button>
@@ -336,7 +336,7 @@ function ContactCard({ contact: c, index }: { contact: Contact; index: number })
         aria-pressed={c.favourite}
         aria-label={c.favourite ? `Remove ${c.name} from favourites` : `Add ${c.name} to favourites`}
         onClick={() => dispatch({ type: "toggleFavourite", id: c.id })}
-        className="absolute right-[14px] top-[14px] inline-flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-inset"
+        className="absolute right-[14px] top-[14px] inline-flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-well"
       >
         <motion.span key={String(c.favourite)} initial={{ scale: 0.5 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 600, damping: 18 }}>
           <Star size={14} strokeWidth={1.6} className={c.favourite ? "fill-[#F4B400] text-[#F4B400]" : "text-muted-2"} />
@@ -345,7 +345,7 @@ function ContactCard({ contact: c, index }: { contact: Contact; index: number })
       <InitialsAvatar initials={c.initials} gradient={c.gradient} size={54} />
       <p className="mt-[12px] w-full truncate text-[14px] font-semibold tracking-[-0.01em] text-ink">{c.name}</p>
       <p className="mt-[4px] w-full truncate text-[11.5px] text-muted-2">{c.handle}</p>
-      <span className="mt-[9px] inline-flex h-[22px] items-center rounded-[7px] bg-inset px-[9px] text-[10.5px] font-medium text-ink-2">{c.kind}</span>
+      <span className="mt-[9px] inline-flex h-[22px] items-center rounded-[7px] bg-well px-[9px] text-[10.5px] font-medium text-ink-2">{c.kind}</span>
       <p className="mt-[11px] w-full truncate text-[11.5px] text-ink-2">
         {c.bank} •• {c.last4}
       </p>

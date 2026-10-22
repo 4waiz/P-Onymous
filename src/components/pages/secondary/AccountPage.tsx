@@ -105,7 +105,7 @@ function Preferences() {
     <Panel at={0.15} contentAt={0.3} className="p-[22px]">
       <Reveal className="flex items-center justify-between">
         <CardTitle>Preferences</CardTitle>
-        <div className="flex h-[34px] items-center rounded-full bg-inset p-[3px]" role="radiogroup" aria-label="Theme">
+        <div className="flex h-[34px] items-center rounded-full bg-well p-[3px]" role="radiogroup" aria-label="Theme">
           {(["light", "dark"] as const).map((t) => (
             <button
               key={t}
@@ -131,7 +131,7 @@ function Preferences() {
           return (
             <li key={p.key} className={cx(i > 0 && "border-t border-line")}>
               <Reveal at={0.05 + i * 0.05} className="flex items-center gap-[14px] py-[12px]">
-                <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-inset text-ink-2">
+                <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-well text-ink-2">
                   <Icon size={15} strokeWidth={1.8} />
                 </span>
                 <div className="min-w-0 flex-1">

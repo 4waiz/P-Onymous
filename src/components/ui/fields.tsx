@@ -70,7 +70,7 @@ export const TextInput = forwardRef<
     <Field label={label} hint={hint} error={error} htmlFor={inputId}>
       <div
         className={cx(
-          "flex h-[46px] items-center gap-2 rounded-[14px] bg-inset px-4 ring-1 ring-inset transition-shadow focus-within:ring-2",
+          "flex h-[46px] items-center gap-2 rounded-[14px] bg-well px-4 ring-1 ring-inset transition-shadow focus-within:ring-2",
           error ? "ring-neg/60 focus-within:ring-neg/70" : "ring-transparent focus-within:ring-accent/50",
         )}
       >
@@ -102,7 +102,7 @@ export function SelectInput({
       <select
         id={selectId}
         className={cx(
-          "h-[46px] rounded-[14px] bg-inset px-4 text-[14.5px] text-ink outline-none ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-accent/50",
+          "h-[46px] rounded-[14px] bg-well px-4 text-[14.5px] text-ink outline-none ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-accent/50",
           className,
         )}
         {...rest}

@@ -84,7 +84,7 @@ function BalanceCard() {
             aria-expanded={currencyOpen}
             aria-label={`Display currency: ${cur}`}
             onClick={() => setCurrencyOpen((o) => !o)}
-            className="flex h-[33px] items-center gap-[7px] rounded-full bg-card pl-[9px] pr-[10px] text-[12.5px] font-medium text-ink-2 ring-1 ring-inset ring-line transition-colors hover:bg-inset"
+            className="flex h-[33px] items-center gap-[7px] rounded-full bg-card pl-[9px] pr-[10px] text-[12.5px] font-medium text-ink-2 ring-1 ring-inset ring-line transition-colors hover:bg-well"
           >
             <Flag code={WALLET_FLAGS[cur]} size={17} />
             {cur}
@@ -101,8 +101,8 @@ function BalanceCard() {
                       setCurrencyOpen(false);
                     }}
                     className={cx(
-                      "flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-[13px] hover:bg-inset",
-                      c === cur && "bg-inset font-medium",
+                      "flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-[13px] hover:bg-well",
+                      c === cur && "bg-well font-medium",
                     )}
                   >
                     <Flag code={WALLET_FLAGS[c]} size={18} /> {c}
@@ -138,7 +138,7 @@ function BalanceCard() {
         </Button>
       </Reveal>
 
-      <Reveal at={0.32} className="mt-[22px] flex-1 rounded-[18px] bg-inset px-[13px] pb-[11px] pt-[12px]">
+      <Reveal at={0.32} className="mt-[22px] flex-1 rounded-[18px] bg-well px-[13px] pb-[11px] pt-[12px]">
         <div className="flex items-center gap-[9px] text-[12.5px]">
           <span className="font-medium text-ink">Wallets</span>
           <span className="h-[12px] w-px bg-line-strong" aria-hidden />
@@ -180,7 +180,7 @@ function WalletMini({ walletId, at }: { walletId: string; at: number }) {
             type="button"
             aria-label={`${w.code} wallet options`}
             onClick={() => setOpen((o) => !o)}
-            className="-mr-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-muted-2 hover:bg-inset hover:text-ink"
+            className="-mr-1 inline-flex h-5 w-5 items-center justify-center rounded-full text-muted-2 hover:bg-well hover:text-ink"
           >
             <EllipsisVertical size={12} strokeWidth={2} />
           </button>
@@ -188,7 +188,7 @@ function WalletMini({ walletId, at }: { walletId: string; at: number }) {
             <div className="p-1.5">
               <button
                 type="button"
-                className="w-full rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-inset"
+                className="w-full rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-well"
                 onClick={() => {
                   dispatch({ type: "toggleWallet", id: w.id });
                   setOpen(false);
@@ -223,7 +223,7 @@ function WalletsDialog({ open, onClose }: { open: boolean; onClose: () => void }
     <Modal open={open} onClose={onClose} title="Wallets" description={`${state.wallets.length} currency wallets · demo balances`} width={440}>
       <ul className="grid gap-2">
         {state.wallets.map((w) => (
-          <li key={w.id} className="flex items-center gap-3 rounded-[16px] bg-inset px-4 py-3">
+          <li key={w.id} className="flex items-center gap-3 rounded-[16px] bg-well px-4 py-3">
             <Flag code={WALLET_FLAGS[w.code]} size={28} />
             <div className="min-w-0 flex-1">
               <p className="text-[14px] font-medium">{w.code}</p>
@@ -284,10 +284,10 @@ function MetricTile({
   countAt: number;
 }) {
   return (
-    <TileShell className="rounded-[18px] bg-inset">
+    <TileShell className="rounded-[18px] bg-well">
       <Reveal at={at} className="flex h-[28px] items-center justify-between">
         <span className="text-[12px] tracking-[-0.005em] text-ink-2">{label}</span>
-        <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-inset-strong text-ink-2">{icon}</span>
+        <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-well-strong text-ink-2">{icon}</span>
       </Reveal>
       <Reveal at={at + 0.03} className="mt-[30px]">
         <AnimatedNumber value={value} format={whole} at={countAt} duration={1.1} className="block text-[32px] font-[650] leading-[40px] tracking-[-0.025em] text-ink" />
@@ -304,7 +304,7 @@ function MetricTile({
 function EarningsTile({ value }: { value: number }) {
   const { delay, dur, still } = useTiming();
   return (
-    <TileShell className="rounded-[22px] bg-inset">
+    <TileShell className="rounded-[22px] bg-well">
       <motion.div
         aria-hidden
         className="absolute inset-0 rounded-[22px]"
@@ -345,7 +345,7 @@ function IncomeCard() {
         <CardTitle>Total Income</CardTitle>
         <p className="mt-[7px] text-[12.5px] text-muted">View your income in a certain period of time</p>
       </Reveal>
-      <Reveal at={0.02} y={6} blur={2} className="mt-[17px] flex min-h-0 flex-1 flex-col rounded-[16px] bg-inset px-[16px] pb-[14px] pt-[15px]">
+      <Reveal at={0.02} y={6} blur={2} className="mt-[17px] flex min-h-0 flex-1 flex-col rounded-[16px] bg-well px-[16px] pb-[14px] pt-[15px]">
         <div className="flex items-center justify-between">
           <p className="text-[13px] font-semibold tracking-[-0.01em] text-ink">Profit and Loss</p>
           <div className="flex items-center gap-[14px] text-[11.5px] text-ink-2">
@@ -412,7 +412,7 @@ function UpcomingBillsCard() {
         {upcoming.map((b, i) => (
           <li key={b.id}>
             <Reveal at={0.05 + i * 0.05} y={6} className="flex items-center gap-3 rounded-[12px] py-2">
-              <span className="flex h-9 w-9 flex-col items-center justify-center rounded-[10px] bg-inset text-[9px] leading-tight text-muted">
+              <span className="flex h-9 w-9 flex-col items-center justify-center rounded-[10px] bg-well text-[9px] leading-tight text-muted">
                 <span className="text-[13px] font-semibold text-ink">{Number(b.due.slice(8, 10))}</span>
                 {dayMonth(b.due).split(" ")[1]}
               </span>
@@ -491,7 +491,7 @@ function RecentActivities() {
             <fieldset className="p-3">
               <legend className="px-1 pb-2 text-[12px] font-medium text-muted">Status</legend>
               {STATUSES.map((s) => (
-                <label key={s} className="flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2 py-2 text-[13px] hover:bg-inset">
+                <label key={s} className="flex cursor-pointer items-center gap-2.5 rounded-[10px] px-2 py-2 text-[13px] hover:bg-well">
                   <input
                     type="checkbox"
                     className="h-4 w-4 accent-[var(--accent)]"
@@ -508,7 +508,7 @@ function RecentActivities() {
               ))}
               <button
                 type="button"
-                className="mt-1 w-full rounded-[10px] px-2 py-2 text-left text-[12.5px] text-accent hover:bg-inset"
+                className="mt-1 w-full rounded-[10px] px-2 py-2 text-left text-[12.5px] text-accent hover:bg-well"
                 onClick={() => setStatuses(new Set(STATUSES))}
               >
                 Reset filters
@@ -524,7 +524,7 @@ function RecentActivities() {
         <button
           type="button"
           onClick={() => navigate("/activity")}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[12.5px] font-medium text-ink-2 hover:bg-inset hover:text-ink"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[12.5px] font-medium text-ink-2 hover:bg-well hover:text-ink"
         >
           View all activity <ArrowRight size={14} strokeWidth={1.8} />
         </button>

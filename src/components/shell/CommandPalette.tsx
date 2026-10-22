@@ -76,7 +76,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
 
   return (
     <Modal open={open} onClose={close} title="Search 71Codes" width={560}>
-      <label className="flex h-[50px] items-center gap-3 rounded-[16px] bg-inset px-4">
+      <label className="flex h-[50px] items-center gap-3 rounded-[16px] bg-well px-4">
         <Search size={18} strokeWidth={1.8} className="text-muted" aria-hidden />
         <span className="sr-only">Search query</span>
         <input
@@ -113,7 +113,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
                 onClick={() => go(r)}
                 className={cx(
                   "flex w-full items-center gap-3 rounded-[12px] px-3 py-2.5 text-left transition-colors",
-                  i === cursor ? "bg-inset" : "hover:bg-inset",
+                  i === cursor ? "bg-well" : "hover:bg-well",
                 )}
               >
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-card text-ink-2 shadow-card">

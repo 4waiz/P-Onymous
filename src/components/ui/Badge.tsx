@@ -40,7 +40,7 @@ export function Pill({
   className?: string;
 }) {
   const tones = {
-    neutral: "bg-inset text-ink-2",
+    neutral: "bg-well text-ink-2",
     pos: "bg-pos-bg text-pos",
     neg: "bg-neg-bg text-neg",
     warn: "bg-warn-bg text-warn",

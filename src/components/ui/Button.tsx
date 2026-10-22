@@ -9,12 +9,12 @@ type Size = "lg" | "md" | "sm" | "xs";
 
 const VARIANTS: Record<Variant, string> = {
   dark: "bg-pill text-pill-fg hover:bg-pill-hover",
-  soft: "bg-inset text-ink hover:bg-inset-strong",
-  ghost: "bg-transparent text-ink hover:bg-inset",
-  outline: "bg-card text-ink ring-1 ring-inset ring-line-strong hover:bg-inset",
+  soft: "bg-well text-ink hover:bg-well-strong",
+  ghost: "bg-transparent text-ink hover:bg-well",
+  outline: "bg-card text-ink ring-1 ring-inset ring-line-strong hover:bg-well",
   accent: "bg-accent text-white hover:bg-accent-deep",
   danger: "bg-neg text-white hover:brightness-95",
-  white: "bg-card text-ink hover:bg-inset",
+  white: "bg-card text-ink hover:bg-well",
 };
 
 const SIZES: Record<Size, string> = {
@@ -73,7 +73,7 @@ export const IconButton = forwardRef<
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
       style={{ width: size, height: size }}
       className={cx(
-        "relative inline-flex shrink-0 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-inset",
+        "relative inline-flex shrink-0 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-well",
         className,
       )}
       {...rest}

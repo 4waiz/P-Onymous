@@ -143,7 +143,7 @@ function AutoSavePanel() {
           initial={{ scale: 0.85, opacity: 0.4 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 500, damping: 24 }}
-          className={cx("inline-flex h-[21px] items-center rounded-[7px] px-[8px] text-[10.5px] font-medium", on ? "bg-pos-bg text-pos" : "bg-inset text-muted")}
+          className={cx("inline-flex h-[21px] items-center rounded-[7px] px-[8px] text-[10.5px] font-medium", on ? "bg-pos-bg text-pos" : "bg-well text-muted")}
           aria-live="polite"
         >
           {on} on
@@ -156,7 +156,7 @@ function AutoSavePanel() {
           return (
             <li key={row.key} className={cx(i > 0 && "border-t border-line")}>
               <Reveal at={0.06 + i * 0.1} y={8} className="flex items-center gap-[14px] py-[13px]">
-                <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-inset text-ink-2">
+                <span className="inline-flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[12px] bg-well text-ink-2">
                   <Icon size={15} strokeWidth={1.8} />
                 </span>
                 <div className="min-w-0 flex-1">
@@ -229,7 +229,7 @@ function GoalCard({ goal: g, index, onAddMoney }: { goal: Goal; index: number; o
         <span className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[11px]" style={{ background: tone.bg, color: tone.fg }}>
           <Icon size={15} strokeWidth={1.9} />
         </span>
-        <span className="inline-flex h-[24px] items-center rounded-full bg-inset px-[10px] text-[10.5px] font-medium text-ink-2">{monthYear(g.due)}</span>
+        <span className="inline-flex h-[24px] items-center rounded-full bg-well px-[10px] text-[10.5px] font-medium text-ink-2">{monthYear(g.due)}</span>
       </Reveal>
       <div className="mt-[15px] flex justify-center">
         <GoalRing percent={percent} at={0.3 + index * 0.08} />
@@ -353,7 +353,7 @@ function AddMoneyForm({ goal, onClose }: { goal: Goal; onClose: () => void }) {
         onClose();
       }}
     >
-      <div className="flex items-center gap-4 rounded-[18px] bg-inset p-4">
+      <div className="flex items-center gap-4 rounded-[18px] bg-well p-4">
         <GoalRing percent={after} size={74} stroke={7} />
         <div className="text-[13px]">
           <p className="text-muted">After this top-up</p>
@@ -366,12 +366,12 @@ function AddMoneyForm({ goal, onClose }: { goal: Goal; onClose: () => void }) {
       <TextInput label="Amount" prefix="$" inputMode="decimal" data-autofocus value={raw} onChange={(e) => setRaw(e.target.value.replace(/[^\d.]/g, ""))} error={submitted ? error : null} hint={`Available ${money(state.balanceUSD)}`} />
       <div className="flex flex-wrap gap-2">
         {[25, 50, 100, 250].map((p) => (
-          <button key={p} type="button" onClick={() => setRaw(String(p))} className={cx("h-[30px] rounded-full px-3 text-[12px] font-medium transition-colors", Number(raw) === p ? "bg-pill text-pill-fg" : "bg-inset hover:bg-inset-strong")}>
+          <button key={p} type="button" onClick={() => setRaw(String(p))} className={cx("h-[30px] rounded-full px-3 text-[12px] font-medium transition-colors", Number(raw) === p ? "bg-pill text-pill-fg" : "bg-well hover:bg-well-strong")}>
             ${p}
           </button>
         ))}
         {remaining > 0 && (
-          <button type="button" onClick={() => setRaw(String(remaining))} className="h-[30px] rounded-full bg-inset px-3 text-[12px] font-medium hover:bg-inset-strong">
+          <button type="button" onClick={() => setRaw(String(remaining))} className="h-[30px] rounded-full bg-well px-3 text-[12px] font-medium hover:bg-well-strong">
             Finish goal · {money(remaining, 0)}
           </button>
         )}

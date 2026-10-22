@@ -39,7 +39,7 @@ export function InboxPage() {
       <PageHeader title="Inbox" subtitle="Messages, requests and receipts from the people you pay." />
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[380px_1fr]">
         <Panel at={0.1} contentAt={0.22} className="p-[16px]">
-          <Reveal className="flex h-[36px] items-center gap-1 rounded-full bg-inset p-[3px]" role="tablist" aria-label="Mailbox">
+          <Reveal className="flex h-[36px] items-center gap-1 rounded-full bg-well p-[3px]" role="tablist" aria-label="Mailbox">
             {(
               [
                 ["all", "All"],
@@ -54,7 +54,7 @@ export function InboxPage() {
             ))}
           </Reveal>
           <Reveal at={0.04} className="mt-3">
-            <SearchInput label="Search messages" placeholder="Search messages" value={query} onChange={(e) => setQuery(e.target.value)} wrapperClassName="h-[40px] bg-inset ring-0" />
+            <SearchInput label="Search messages" placeholder="Search messages" value={query} onChange={(e) => setQuery(e.target.value)} wrapperClassName="h-[40px] bg-well ring-0" />
           </Reveal>
           <ul className="mt-2">
             {list.length === 0 && <li className="py-10 text-center text-[13px] text-muted">No messages here.</li>}
@@ -69,7 +69,7 @@ export function InboxPage() {
                       if (!m.read) dispatch({ type: "readMessage", id: m.id });
                     }}
                     aria-current={openId === m.id}
-                    className={cx("flex w-full items-start gap-3 rounded-[16px] p-3 text-left transition-colors", openId === m.id ? "bg-inset" : "hover:bg-inset/60")}
+                    className={cx("flex w-full items-start gap-3 rounded-[16px] p-3 text-left transition-colors", openId === m.id ? "bg-well" : "hover:bg-well/60")}
                   >
                     <InitialsAvatar initials={m.initials} gradient={m.gradient} size={38} />
                     <span className="min-w-0 flex-1">
@@ -100,7 +100,7 @@ export function InboxPage() {
                       {open.from} · {dateTime(open.at)}
                     </p>
                   </div>
-                  <button type="button" aria-pressed={open.starred} aria-label={open.starred ? "Unstar" : "Star"} onClick={() => dispatch({ type: "toggleStar", id: open.id })} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-inset">
+                  <button type="button" aria-pressed={open.starred} aria-label={open.starred ? "Unstar" : "Star"} onClick={() => dispatch({ type: "toggleStar", id: open.id })} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-well">
                     <Star size={17} strokeWidth={1.7} className={open.starred ? "fill-[#F4B400] text-[#F4B400]" : "text-muted"} />
                   </button>
                 </div>
@@ -126,7 +126,7 @@ export function InboxPage() {
                   <label className="sr-only" htmlFor="reply">
                     Reply
                   </label>
-                  <textarea id="reply" value={draft} onChange={(e) => setDraft(e.target.value)} rows={2} placeholder={`Reply to ${open.from.split(" ")[0]}…`} className="min-h-[52px] flex-1 resize-none rounded-[16px] bg-inset px-4 py-3 text-[13.5px] outline-none focus:ring-2 focus:ring-accent/40" />
+                  <textarea id="reply" value={draft} onChange={(e) => setDraft(e.target.value)} rows={2} placeholder={`Reply to ${open.from.split(" ")[0]}…`} className="min-h-[52px] flex-1 resize-none rounded-[16px] bg-well px-4 py-3 text-[13.5px] outline-none focus:ring-2 focus:ring-accent/40" />
                   <Button type="submit" size="lg" disabled={!draft.trim()} icon={<Send size={15} strokeWidth={1.9} />}>
                     Send
                   </Button>

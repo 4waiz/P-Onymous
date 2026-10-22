@@ -89,7 +89,7 @@ export function ProgramPage() {
               ["Points earned", `+${int(1860)}`],
               ["Perks redeemed", String(rewards.redeemed.length)],
             ].map(([k, v], i) => (
-              <Reveal key={k} at={0.05 + i * 0.05} className="flex items-center justify-between rounded-[14px] bg-inset px-4 py-3">
+              <Reveal key={k} at={0.05 + i * 0.05} className="flex items-center justify-between rounded-[14px] bg-well px-4 py-3">
                 <dt className="text-[13px] text-ink-2">{k}</dt>
                 <dd className="num text-[15px] font-semibold">{v}</dd>
               </Reveal>
@@ -109,7 +109,7 @@ export function ProgramPage() {
             const Icon = p.icon;
             return (
               <li key={p.id}>
-                <Reveal at={0.05 + i * 0.06} className="flex h-full items-start gap-3 rounded-[16px] bg-inset p-4">
+                <Reveal at={0.05 + i * 0.06} className="flex h-full items-start gap-3 rounded-[16px] bg-well p-4">
                   <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-card text-ink-2 shadow-card">
                     <Icon size={16} strokeWidth={1.8} />
                   </span>

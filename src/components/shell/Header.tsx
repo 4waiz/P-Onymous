@@ -180,9 +180,9 @@ function HeaderActions({ onSearch }: { onSearch: () => void }) {
                   <button
                     type="button"
                     onClick={() => dispatch({ type: "readNotification", id: n.id })}
-                    className="flex w-full items-start gap-3 rounded-[14px] px-3 py-2.5 text-left transition-colors hover:bg-inset"
+                    className="flex w-full items-start gap-3 rounded-[14px] px-3 py-2.5 text-left transition-colors hover:bg-well"
                   >
-                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-inset text-ink-2">
+                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-well text-ink-2">
                       <Icon size={15} strokeWidth={1.8} />
                     </span>
                     <span className="min-w-0 flex-1">
@@ -222,7 +222,7 @@ function HeaderActions({ onSearch }: { onSearch: () => void }) {
                 href="/showcase"
                 target="_top"
                 onClick={() => setOpen(null)}
-                className="flex items-center gap-2.5 rounded-[12px] bg-inset px-3 py-2.5 text-left text-[13px] font-medium transition-colors hover:bg-inset-strong"
+                className="flex items-center gap-2.5 rounded-[12px] bg-well px-3 py-2.5 text-left text-[13px] font-medium transition-colors hover:bg-well-strong"
               >
                 <Clapperboard size={16} strokeWidth={1.8} /> Watch the V14 showcase
               </Link>
@@ -234,14 +234,14 @@ function HeaderActions({ onSearch }: { onSearch: () => void }) {
                   navigate("/");
                   toast({ title: "Demo data reset", description: "Everything is back to the seeded state." });
                 }}
-                className="flex items-center gap-2.5 rounded-[12px] bg-inset px-3 py-2.5 text-left text-[13px] font-medium transition-colors hover:bg-inset-strong"
+                className="flex items-center gap-2.5 rounded-[12px] bg-well px-3 py-2.5 text-left text-[13px] font-medium transition-colors hover:bg-well-strong"
               >
                 <RotateCcw size={16} strokeWidth={1.8} /> Reset demo data
               </button>
             </div>
             <p className="mt-4 text-[11.5px] text-muted">
-              Shortcuts: <kbd className="rounded bg-inset px-1.5 py-0.5">Ctrl K</kbd> search ·{" "}
-              <kbd className="rounded bg-inset px-1.5 py-0.5">Esc</kbd> close
+              Shortcuts: <kbd className="rounded bg-well px-1.5 py-0.5">Ctrl K</kbd> search ·{" "}
+              <kbd className="rounded bg-well px-1.5 py-0.5">Esc</kbd> close
             </p>
           </div>
         </Popover>
@@ -258,7 +258,7 @@ function UserMenu() {
   const ref = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const item =
-    "flex w-full items-center gap-3 rounded-[12px] px-3 py-2.5 text-left text-[13.5px] transition-colors hover:bg-inset";
+    "flex w-full items-center gap-3 rounded-[12px] px-3 py-2.5 text-left text-[13.5px] transition-colors hover:bg-well";
 
   return (
     <div className="relative">

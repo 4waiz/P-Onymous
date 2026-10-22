@@ -116,7 +116,7 @@ export function ReportsPage() {
               <CardTitle>Cash flow</CardTitle>
               <p className="mt-1 text-[12.5px] text-muted">Income against expenses, month by month</p>
             </div>
-            <div className="flex h-[34px] items-center rounded-full bg-inset p-[3px]" role="radiogroup" aria-label="Period">
+            <div className="flex h-[34px] items-center rounded-full bg-well p-[3px]" role="radiogroup" aria-label="Period">
               {(
                 [
                   ["6m", "6 months"],
@@ -170,7 +170,7 @@ export function ReportsPage() {
             return (
               <li key={key}>
                 <Reveal at={0.04 + i * 0.05} className="flex flex-wrap items-center gap-4 py-3.5">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-[12px] bg-inset text-ink-2">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-[12px] bg-well text-ink-2">
                     <FileText size={16} strokeWidth={1.8} />
                   </span>
                   <div className="min-w-[160px] flex-1">

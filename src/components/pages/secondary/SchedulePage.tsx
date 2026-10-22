@@ -70,10 +70,10 @@ export function SchedulePage() {
               {MONTH_NAMES[month.m - 1]} {month.y}
             </CardTitle>
             <div className="flex gap-1">
-              <button type="button" aria-label="Previous month" onClick={() => shift(-1)} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-inset">
+              <button type="button" aria-label="Previous month" onClick={() => shift(-1)} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-well">
                 <ChevronLeft size={17} />
               </button>
-              <button type="button" aria-label="Next month" onClick={() => shift(1)} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-inset">
+              <button type="button" aria-label="Next month" onClick={() => shift(1)} className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-well">
                 <ChevronRight size={17} />
               </button>
             </div>
@@ -96,7 +96,7 @@ export function SchedulePage() {
                   onClick={() => setDay((cur) => (cur === d ? null : d))}
                   className={cx(
                     "relative flex aspect-square items-center justify-center rounded-[12px] text-[13px] transition-colors",
-                    day === d ? "bg-pill text-pill-fg" : dueDays.has(d) ? "bg-accent-soft font-semibold text-accent" : "hover:bg-inset",
+                    day === d ? "bg-pill text-pill-fg" : dueDays.has(d) ? "bg-accent-soft font-semibold text-accent" : "hover:bg-well",
                   )}
                 >
                   {d}
@@ -105,7 +105,7 @@ export function SchedulePage() {
               ),
             )}
           </Reveal>
-          <Reveal at={0.1} className="mt-4 flex items-center justify-between rounded-[14px] bg-inset px-4 py-3 text-[13px]">
+          <Reveal at={0.1} className="mt-4 flex items-center justify-between rounded-[14px] bg-well px-4 py-3 text-[13px]">
             <span className="text-ink-2">{monthBills.length} bills this month</span>
             <span className="num font-semibold">{money(monthBills.reduce((s, b) => s + b.amount, 0))}</span>
           </Reveal>
@@ -125,7 +125,7 @@ export function SchedulePage() {
             {list.map((b, i) => (
               <motion.li key={b.id} layout className={cx(i > 0 && "border-t border-line")}>
                 <Reveal at={0.04 + i * 0.05} className={cx("flex flex-wrap items-center gap-3 py-3", b.paid && "opacity-60")}>
-                  <span className="flex h-11 w-11 flex-col items-center justify-center rounded-[12px] bg-inset text-[9.5px] leading-tight text-muted">
+                  <span className="flex h-11 w-11 flex-col items-center justify-center rounded-[12px] bg-well text-[9.5px] leading-tight text-muted">
                     <span className="text-[14px] font-semibold text-ink">{Number(b.due.slice(8, 10))}</span>
                     {dayMonth(b.due).split(" ")[1]}
                   </span>

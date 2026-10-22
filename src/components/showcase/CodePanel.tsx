@@ -160,7 +160,7 @@ export function CodePanel() {
         jsx
       </span>
 
-      <pre className="absolute m-0 font-mono text-[7.4px]" style={{ left: 0, top: 21.75, lineHeight: `${LINE}px` }}>
+      <pre className="absolute m-0 font-mono text-[7.4px]" style={{ left: 0, top: 21.75, lineHeight: `${LINE}px`, fontVariantLigatures: "none" }}>
         {LINES.map((line, i) => (
           <div key={i} className="relative flex whitespace-pre" style={{ height: LINE }}>
             <span className="inline-block text-right text-[#3D4551]" style={{ width: 20 }}>

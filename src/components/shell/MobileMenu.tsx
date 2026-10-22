@@ -22,7 +22,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
               aria-current={active ? "page" : undefined}
               className={cx(
                 "rounded-[14px] px-4 py-3 text-[14px] font-medium transition-colors",
-                active ? "bg-pill text-pill-fg" : "bg-inset text-ink hover:bg-inset-strong",
+                active ? "bg-pill text-pill-fg" : "bg-well text-ink hover:bg-well-strong",
               )}
             >
               {l.label}

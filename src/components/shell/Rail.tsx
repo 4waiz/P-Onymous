@@ -75,7 +75,7 @@ export function Rail() {
               {theme === t && (
                 <motion.span
                   layoutId="theme-pill"
-                  className="absolute inset-[3px] rounded-full bg-inset"
+                  className="absolute inset-[3px] rounded-full bg-well"
                   transition={{ type: "spring", stiffness: 420, damping: 34 }}
                 />
               )}
@@ -156,7 +156,7 @@ export function Rail() {
             ["Tab", "Move through controls (focus ring shows where you are)"],
             ["Tap the card", "Flip your virtual card on Manage"],
           ].map(([k, v]) => (
-            <li key={k} className="flex items-center justify-between gap-4 rounded-[12px] bg-inset px-3 py-2.5">
+            <li key={k} className="flex items-center justify-between gap-4 rounded-[12px] bg-well px-3 py-2.5">
               <kbd className="rounded-[7px] bg-card px-2 py-1 text-[12px] font-medium shadow-card">{k}</kbd>
               <span className="text-right text-muted">{v}</span>
             </li>

@@ -99,7 +99,7 @@ export function ActivityPage() {
 
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[minmax(0,1fr)_332px]">
         <Panel at={0.22} contentAt={0.32} className="px-[22px] pb-[18px] pt-[22px]">
-          <Reveal className="inline-flex h-[40px] items-center gap-[4px] rounded-full bg-inset p-[4px]" role="tablist" aria-label="Filter by status">
+          <Reveal className="inline-flex h-[40px] items-center gap-[4px] rounded-full bg-well p-[4px]" role="tablist" aria-label="Filter by status">
             {TABS.map((t) => {
               const active = tab === t;
               return (
@@ -116,7 +116,7 @@ export function ActivityPage() {
                 >
                   {active && <motion.span layoutId="activity-tab" className="absolute inset-0 rounded-full bg-card shadow-card" transition={{ type: "spring", stiffness: 460, damping: 36 }} />}
                   <span className="relative">{t}</span>
-                  <span className={cx("relative inline-flex h-[17px] min-w-[19px] items-center justify-center rounded-full px-1 text-[10px] font-medium", active ? "bg-pill text-pill-fg" : "bg-inset-strong text-muted")}>
+                  <span className={cx("relative inline-flex h-[17px] min-w-[19px] items-center justify-center rounded-full px-1 text-[10px] font-medium", active ? "bg-pill text-pill-fg" : "bg-well-strong text-muted")}>
                     {counts[t]}
                   </span>
                 </button>
@@ -177,7 +177,7 @@ function StatCard({
   format: (v: number) => string;
   foot: ReactNode;
 }) {
-  const tones = { neutral: "bg-inset text-ink-2", pos: "bg-pos-bg text-pos", neg: "bg-neg-bg text-neg", warn: "bg-warn-bg text-warn" };
+  const tones = { neutral: "bg-well text-ink-2", pos: "bg-pos-bg text-pos", neg: "bg-neg-bg text-neg", warn: "bg-warn-bg text-warn" };
   return (
     <Panel at={at} contentAt={at + 0.12} className="h-[159px] px-[20px] pb-[20px] pt-[21px]">
       <Reveal className="flex items-center gap-[12px]">

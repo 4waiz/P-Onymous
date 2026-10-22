@@ -102,7 +102,7 @@ export function TxTable({
         </colgroup>
         <thead>
           <tr className="text-[13.5px] text-muted">
-            <th className="h-[54px] rounded-l-[14px] bg-inset pl-[22px] font-normal">
+            <th className="h-[54px] rounded-l-[14px] bg-well pl-[22px] font-normal">
               <Checkbox
                 checked={allChecked}
                 indeterminate={!allChecked && someChecked}
@@ -110,12 +110,12 @@ export function TxTable({
                 onChange={(v) => onSelectedChange(v ? new Set(rows.map((r) => r.id)) : new Set())}
               />
             </th>
-            <th className="h-[54px] bg-inset font-normal">Order ID</th>
-            <th className="h-[54px] bg-inset font-normal">Activity</th>
-            <th className="h-[54px] bg-inset font-normal">{onSort ? sortBtn("price", "Price") : "Price"}</th>
-            <th className="h-[54px] bg-inset font-normal">Status</th>
-            <th className="h-[54px] bg-inset font-normal">{onSort ? sortBtn("date", "Date") : "Date"}</th>
-            <th className="h-[54px] rounded-r-[14px] bg-inset font-normal">
+            <th className="h-[54px] bg-well font-normal">Order ID</th>
+            <th className="h-[54px] bg-well font-normal">Activity</th>
+            <th className="h-[54px] bg-well font-normal">{onSort ? sortBtn("price", "Price") : "Price"}</th>
+            <th className="h-[54px] bg-well font-normal">Status</th>
+            <th className="h-[54px] bg-well font-normal">{onSort ? sortBtn("date", "Date") : "Date"}</th>
+            <th className="h-[54px] rounded-r-[14px] bg-well font-normal">
               <span className="sr-only">Actions</span>
             </th>
           </tr>
@@ -167,7 +167,7 @@ export function TxTable({
       <Modal open={!!detail} onClose={() => setDetail(null)} title={detail?.title ?? ""} description={detail?.id} width={420}>
         {detail && (
           <div>
-            <div className="flex items-center gap-3 rounded-[18px] bg-inset p-4">
+            <div className="flex items-center gap-3 rounded-[18px] bg-well p-4">
               <TxGlyph icon={detail.icon} size={40} />
               <div>
                 <p className={cx("num text-[24px] font-semibold tracking-[-0.02em]", detail.direction === "in" && "text-pos")}>
@@ -223,7 +223,7 @@ function RowMenu({ tx, onView }: { tx: Transaction; onView: () => void }) {
         aria-label={`Actions for ${tx.id}`}
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-inset hover:text-ink"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-well hover:text-ink"
       >
         <Ellipsis size={16} strokeWidth={1.8} />
       </button>
@@ -231,7 +231,7 @@ function RowMenu({ tx, onView }: { tx: Transaction; onView: () => void }) {
         <div className="p-1.5">
           <button
             type="button"
-            className="flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-inset"
+            className="flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-well"
             onClick={() => {
               setOpen(false);
               onView();
@@ -241,7 +241,7 @@ function RowMenu({ tx, onView }: { tx: Transaction; onView: () => void }) {
           </button>
           <button
             type="button"
-            className="flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-inset"
+            className="flex w-full items-center gap-2.5 rounded-[10px] px-3 py-2 text-left text-[13px] hover:bg-well"
             onClick={async () => {
               setOpen(false);
               try {
