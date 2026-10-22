@@ -128,7 +128,7 @@ export function WorldPanel({
         <div
           ref={frame}
           className="world-frame relative w-full overflow-hidden rounded-[22px]"
-          style={{ height: fullscreen ? "100vh" : `min(${height}px, calc(56vw + 150px))` }}
+          style={{ height: fullscreen ? "100vh" : `min(${height}px, calc(46vw + 100px))` }}
         >
           <div aria-hidden className="world-backdrop absolute inset-0" />
           <CanvasBoundary>
@@ -163,12 +163,12 @@ export function WorldPanel({
           </div>
 
           {/* Card stacks */}
-          <div className="pointer-events-none absolute inset-y-0 left-3 flex flex-col justify-center gap-[10px] sm:left-5">
+          <div className="pointer-events-none absolute inset-y-0 left-5 hidden flex-col justify-center gap-[10px] md:flex">
             {left.map((c, i) => (
               <CardEl key={c.id} spec={c} index={i} registry={registry} active={hovered === c.anchor || selected === c.anchor} />
             ))}
           </div>
-          <div className="pointer-events-none absolute inset-y-0 right-3 flex flex-col items-end justify-center gap-[10px] sm:right-5">
+          <div className="pointer-events-none absolute inset-y-0 right-5 hidden flex-col items-end justify-center gap-[10px] md:flex">
             {right.map((c, i) => (
               <CardEl key={c.id} spec={c} index={i} registry={registry} active={hovered === c.anchor || selected === c.anchor} />
             ))}
@@ -182,7 +182,7 @@ export function WorldPanel({
           </AnimatePresence>
 
           {/* Chrome */}
-          <Reveal at={0.25} className="pointer-events-none absolute bottom-4 left-5 flex items-center gap-2">
+          <Reveal at={0.25} className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 sm:bottom-4 sm:left-5">
             <span className="world-chip pointer-events-auto inline-flex h-[28px] items-center gap-2 rounded-full px-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink">
               <span className="relative flex h-[7px] w-[7px]">
                 <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-60" />
@@ -197,7 +197,7 @@ export function WorldPanel({
               <MousePointerClick size={13} strokeWidth={1.8} /> {hint}
             </span>
           </Reveal>
-          <Reveal at={0.28} className="absolute bottom-4 right-5 flex items-center gap-1.5">
+          <Reveal at={0.28} className="absolute bottom-3 right-3 flex items-center gap-1.5 sm:bottom-4 sm:right-5">
             <ChromeButton label={paused ? "Play motion" : "Pause motion"} onClick={() => setPaused((p) => !p)}>
               {paused ? <Play size={14} strokeWidth={2} /> : <Pause size={14} strokeWidth={2} />}
             </ChromeButton>
@@ -211,6 +211,24 @@ export function WorldPanel({
               {fullscreen ? <Minimize2 size={14} strokeWidth={2} /> : <Maximize2 size={14} strokeWidth={2} />}
             </ChromeButton>
           </Reveal>
+        </div>
+
+        {/* Phones: cards move out of the scene into a swipeable strip so the world stays visible */}
+        <div className="no-scrollbar flex gap-2 overflow-x-auto px-3 pb-3 pt-3 md:hidden" aria-label={`${eyebrow} live figures`}>
+          {cards.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              onClick={() => registry.select(selected === c.anchor ? null : c.anchor)}
+              className={cx("world-card shrink-0 rounded-[14px] px-3 py-2 text-left", selected === c.anchor && "world-card-active")}
+            >
+              <span className="flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-ink-2/80">
+                <span className="h-[7px] w-[7px] rounded-full" style={{ background: TONE[c.tone].dot }} />
+                {c.label}
+              </span>
+              <span className="mt-0.5 block whitespace-nowrap text-[15px] font-bold leading-[20px] tracking-[-0.02em] text-ink">{c.value}</span>
+            </button>
+          ))}
         </div>
       </Panel>
     </WorldContext.Provider>
@@ -270,13 +288,13 @@ function FocusEl({
       animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)", transitionEnd: { filter: "none" } }}
       exit={{ opacity: 0, y: -6, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-      className="absolute left-1/2 top-4 z-10 -translate-x-1/2"
+      className="absolute left-1/2 top-3 z-10 -translate-x-1/2 sm:top-4"
     >
       <div
         ref={(el) => registry.registerOverlay("__focus", anchor, "card", el, "top")}
         role="dialog"
         aria-label={spec.title}
-        className="world-card pointer-events-auto w-[300px] rounded-[20px] px-[18px] pb-[14px] pt-[16px]"
+        className="world-card pointer-events-auto w-[min(300px,calc(100vw-64px))] rounded-[20px] px-[18px] pb-[14px] pt-[16px]"
       >
         <div className="flex items-center gap-3">
           <span className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-full" style={{ background: t.soft, color: t.dot }}>

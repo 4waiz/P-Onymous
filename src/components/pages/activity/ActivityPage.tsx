@@ -101,7 +101,7 @@ export function ActivityPage() {
 
       <div className="grid grid-cols-1 gap-[24px] lg:grid-cols-[minmax(0,1fr)_332px]">
         <Panel at={0.22} contentAt={0.32} className="px-[22px] pb-[18px] pt-[22px]">
-          <Reveal className="inline-flex h-[40px] items-center gap-[4px] rounded-full bg-well p-[4px]" role="tablist" aria-label="Filter by status">
+          <Reveal className="no-scrollbar inline-flex h-[40px] max-w-full items-center gap-[4px] overflow-x-auto rounded-full bg-well p-[4px]" role="tablist" aria-label="Filter by status">
             {TABS.map((t) => {
               const active = tab === t;
               return (
@@ -114,7 +114,7 @@ export function ActivityPage() {
                     setTab(t);
                     setLimit(PAGE);
                   }}
-                  className={cx("relative flex h-[32px] items-center gap-[7px] rounded-full px-[14px] text-[12.5px] transition-colors", active ? "text-ink" : "text-muted hover:text-ink")}
+                  className={cx("relative flex h-[32px] shrink-0 items-center gap-[7px] whitespace-nowrap rounded-full px-[14px] text-[12.5px] transition-colors", active ? "text-ink" : "text-muted hover:text-ink")}
                 >
                   {active && <motion.span layoutId="activity-tab" className="absolute inset-0 rounded-full bg-card shadow-card" transition={{ type: "spring", stiffness: 460, damping: 36 }} />}
                   <span className="relative">{t}</span>

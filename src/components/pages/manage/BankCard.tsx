@@ -111,20 +111,20 @@ export function BankCard({
               <p className="text-[10px] leading-none" style={{ color: skin.sub }}>
                 Card Number
               </p>
-              <p className="mt-[9px] whitespace-nowrap font-mono text-[15px] font-medium leading-none tracking-[0.14em]">{formatNumber(card, reveal)}</p>
+              <p className="mt-[9px] whitespace-nowrap font-mono text-[12px] font-medium leading-none tracking-[0.06em] sm:text-[15px] sm:tracking-[0.14em]">{formatNumber(card, reveal)}</p>
             </div>
-            <div className="flex shrink-0 gap-[22px]">
+            <div className="flex shrink-0 gap-[12px] sm:gap-[22px]">
               <div>
                 <p className="text-[10px] leading-none" style={{ color: skin.sub }}>
                   EXP
                 </p>
-                <p className="mt-[9px] font-mono text-[15px] font-medium leading-none tracking-[0.08em]">{card.expiry}</p>
+                <p className="mt-[9px] font-mono text-[12px] font-medium leading-none tracking-[0.04em] sm:text-[15px] sm:tracking-[0.08em]">{card.expiry}</p>
               </div>
               <div>
                 <p className="text-[10px] leading-none" style={{ color: skin.sub }}>
                   CVV
                 </p>
-                <p className="mt-[9px] font-mono text-[15px] font-medium leading-none tracking-[0.08em]">{card.cvv}</p>
+                <p className="mt-[9px] font-mono text-[12px] font-medium leading-none tracking-[0.04em] sm:text-[15px] sm:tracking-[0.08em]">{card.cvv}</p>
               </div>
             </div>
           </div>

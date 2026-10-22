@@ -43,11 +43,11 @@ export function Header() {
         <ShellReveal at={0.05} className="shrink-0">
           <NavLink
             href="/"
-            className="flex h-[58px] items-center gap-[9px] rounded-full bg-card pl-[5px] pr-[22px] shadow-float"
+            className="flex h-[58px] items-center gap-[9px] rounded-full bg-card pl-[5px] pr-[5px] shadow-float sm:pr-[22px]"
             aria-label="71Codes home"
           >
             <BrandMark size={46} />
-            <span className="text-[16.5px] font-semibold tracking-[-0.01em] text-ink">71Codes</span>
+            <span className="hidden text-[16.5px] font-semibold tracking-[-0.01em] text-ink sm:inline">71Codes</span>
           </NavLink>
         </ShellReveal>
 
@@ -55,7 +55,7 @@ export function Header() {
           <TopNav />
         </ShellReveal>
 
-        <div className="ml-auto flex items-center gap-[18px]">
+        <div className="ml-auto flex items-center gap-2 sm:gap-[18px]">
           <ShellReveal at={0.16}>
             <HeaderActions onSearch={() => setPaletteOpen(true)} />
           </ShellReveal>
